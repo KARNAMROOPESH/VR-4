@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-camera position = "0 8 25"></a-camera>
+
+        <!--Assets management-->
+
+        <a-assets>
+
+            <a-asset-item id = "tiger" src = "./models/tiger/Mesh_BengalTiger.gltf"></a-asset-item>
+            <a-asset-item id = "giraffe" src="./models/giraffe/scene.gltf"></a-asset-item>
+            <a-asset-item id = "tree" src="./models/tree_for_games/scene.gltf"></a-asset-item>
+            <a-asset-item id = "photo" src="./models/photographer/scene.gltf"></a-asset-item>
+
+            <img id = "bg" src = "./images/sky.jpg"/>
+            
+        </a-assets>
+        
+        <a-sky src="#bg"></a-sky>
+
+        <!--Lights-->
+        <!--Ambient-->
+    <a-entity light="type: ambient; intensity: 0.5;">
+    </a-entity>
+
+
+    <!--Directional-->
+    <a-entity animation="property: rotation; to: 0 360 0;easing:linear; loop: true; dur: 60000">
+
+      <a-entity light="type: directional; castShadow: true; intensity: 1; distance: 50; decay: 2; color:yellow"
+        position="-100 18 20"></a-entity>
+
+    </a-entity>
+
+        <!--Circular plane-->
+        <a-circle position = "-0.5 -0.75 -25" radius = "100" color="#2E6F10" rotation = "-90 0 0" shadow = "receive: true"></a-circle>
+        
+        <!--GLTF Models-->
+        <a-entity>
+            <a-entity gltf-model = "#tiger" shadow = "cast: true" position = "5 2 0" scale = "0.03 0.03 0.03"></a-entity>
+        </a-entity>
+        <a-entity>
+            <a-entity gltf-model = "#giraffe" position = "-15 10 0 " scale = "1.5 1.5 1.5" shadow = "cast:true; receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity>
+            <a-entity gltf-model = "#tree" position = "10 2 -10" scale = "0.02 0.02 0.02" shadow = "cast:true; receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity>
+            <a-entity gltf-model = "#tree" position = "30 2 -15" scale = "0.02 0.02 0.02" shadow = "cast:true; receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity>
+            <a-entity gltf-model = "#tree" position = "-25 2 -12" scale = "0.02 0.02 0.02" shadow = "cast:true; receive: false"></a-entity>
+        </a-entity>
+
+        <a-entity>
+        <a-entity gltf-model = "#photo" position = "-10 2 15" rotation = " 0 180 0" shadow = "cast:true; receive: false" scale = "3 3 3"></a-entity>
+        </a-entity>
+        
+    </a-scene>
+</body>
+
+</html>
